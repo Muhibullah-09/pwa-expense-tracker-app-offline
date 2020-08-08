@@ -4,7 +4,7 @@
 const CACHE_NAME = "version-1";
 
 //here offline.html is used when we offline
-const urlsToCache = ['index.html', '/src/index.js'];
+const urlsToCache = ['index.html'];
 
 const self = this;
 
@@ -26,7 +26,7 @@ self.addEventListener('fetch', (event) => {
         caches.match(event.request)//here request means EX: you need to see a image you send request
             .then(() => {
                 return fetch(event.request)
-                    .catch(() => caches.match('/src/index.js'))
+                    .catch(() => caches.match('index.html'))
             })
     )
 });
